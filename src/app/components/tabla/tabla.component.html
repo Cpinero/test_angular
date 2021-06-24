@@ -1,0 +1,18 @@
+<table class="table mt-2">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Patronus</th>
+            <th scope="col">Age</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pj of data">
+            <td>{{pj.name}}</td>
+            <td>{{pj.patronus | patronus}}</td>
+            <td>{{pj.dateOfBirth | edad}}</td>
+            <td><img class="img img-thumbnail" src="{{pj.image}}" alt="{{pj.name}}"></td>
+        </tr>
+    </tbody>
+</table>

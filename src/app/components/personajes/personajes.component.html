@@ -1,0 +1,9 @@
+<h1>Personajes</h1>
+<hr>
+<form #form="ngForm">
+    <select [ngModel]="casa" name="casa" class="form-select" aria-label="Default select example" (change)="estudiantes(form) ">
+        <option value="">---- Elige una casa ----</option>
+        <option *ngFor="let cs of casas" value="{{cs}}">{{cs | uppercase}} </option>
+    </select>
+</form>
+<app-tabla [data]="personajes"></app-tabla>

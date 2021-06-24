@@ -1,0 +1,46 @@
+<h1>Estudiantes</h1>
+<hr>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Agregar estudiantes
+</button>
+<app-tabla [data]="estudiantes"></app-tabla>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Solicitud de nuevo estudiante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre del Estudiante</label>
+                        <input formControlName="name" [class.is-invalid]="nombreNoValido" type="text" class="form-control" id="nombre">
+                        <small class="text-danger" *ngIf="nombreNoValido">El nombre es requerido</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="patronus" class="form-label">Nombre del Patonous</label>
+                        <input formControlName="patronus" type="text" class="form-control" id="patronus">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Fecha de Nacimiento</label>
+                        <input formControlName="dateOfBirth" [class.is-invalid]="fechaNoValida" type="date" max="{{hoy}}" class="form-control" id="edad">
+                        <small class="text-danger" *ngIf="fechaNoValida">La fecha es requerida</small>
+                    </div>
+                    <div *ngIf="alert" class="alert alert-success" role="alert">
+                        Nuevo estudiante agregado
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" (click)="guardarEstudiante()" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

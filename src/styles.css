@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+.active {
+    color: black;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+}
+
+.img {
+    width: 6em;
+}
+
+@media (max-width:414px) {
+    td {
+        font-size: 14px;
+    }
+}
